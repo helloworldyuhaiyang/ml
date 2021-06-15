@@ -1,4 +1,4 @@
-import dataset
+from common import dataset
 import matplotlib.pyplot as plt
 
 # 生成 x, y 的值数组
