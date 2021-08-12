@@ -1,3 +1,6 @@
+#  w,b 的梯度下降函数
+#################################
+
 from common import dataset
 import matplotlib.pyplot as plt
 

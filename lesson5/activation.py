@@ -1,3 +1,6 @@
+# 加入了激活函数的 神经元
+#################################
+
 import numpy as np
 
 import matplotlib.pyplot as plt
@@ -17,7 +20,8 @@ plt.xlabel("size")
 plt.ylabel("toxicity")
 # 输入散点
 plt.scatter(xs, ys)
-# 假设函数 y = 0.5*x+0.5
+
+# 复合函数
 w = 0.1
 b = 0.1
 z = w * xs + b
