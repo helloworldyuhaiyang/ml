@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 豆豆个数
-from lesson6 import dataset
+import dataset
 
 
 def sigmoid(x):

@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 豆豆个数
-from lesson5 import dataset
+import dataset
 
 num = 100
 # 生成 x, y 的值数组
