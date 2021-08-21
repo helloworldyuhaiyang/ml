@@ -49,8 +49,8 @@ model.add(Dense(units=10, activation='softmax'))
 
 # 交叉熵代价函数 适合评估分类
 loss = categorical_crossentropy,
-sgd = SGD(learning_rate=0.01)
-model.compile(loss=loss, optimizer=sgd, metrics='accuracy')
+optimizer = SGD(learning_rate=0.01)
+model.compile(loss=loss, optimizer=optimizer, metrics='accuracy')
 
 # 开始训练
 model.fit(X_train, Y_train, epochs=100, batch_size=10)
