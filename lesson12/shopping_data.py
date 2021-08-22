@@ -1,11 +1,10 @@
 import os
-import keras
-import numpy as np
-import keras.preprocessing.text as text
 import re
-import jieba
 import random
 
+import jieba
+from keras_preprocessing import text
+from numpy import concatenate, array
 
 
 def load_data():
@@ -30,8 +29,8 @@ def load_data():
 			xs.append(review)
 			ys.append(label)
 
-	xs = np.array(xs)
-	ys = np.array(ys)
+	xs = array(xs)
+	ys = array(ys)
 
 	#打乱数据集
 	indies = [i for i in range(len(xs))] 
@@ -58,7 +57,7 @@ def load_data():
 
 
 def createWordIndex(x_train,x_test):
-	x_all = np.concatenate((x_train,x_test),axis=0)
+	x_all = concatenate((x_train, x_test), axis=0)
 	#建立词索引
 	tokenizer = text.Tokenizer()
 	#create word index
@@ -101,7 +100,7 @@ def word2Index(words,word_index):
 
 	    # if len(index)>25:
 	    # 	index = index[0:25]
-	    vecs.append(np.array(index))
+	    vecs.append(array(index))
 
-	return np.array(vecs)
+	return array(vecs)
 

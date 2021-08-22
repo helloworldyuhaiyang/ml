@@ -1,11 +1,9 @@
-import keras.optimizers
-
 import shopping_data
 from keras.preprocessing import sequence
 from keras import Sequential
-from keras.layers import Dense, Embedding
+from keras.layers import Dense, Embedding, Flatten
 from keras.losses import binary_crossentropy
-from keras.optimizers import adam_v2
+from keras.optimizers import Adam
 
 x_train, y_train, x_test, y_test = shopping_data.load_data()
 
@@ -36,6 +34,7 @@ x_test_index = sequence.pad_sequences(x_test_index, maxlen)
 # 初始化训练网络
 model = Sequential()
 model.add(Embedding(trainable=False, input_dim=vocalen, output_dim=300, input_length=maxlen))
+model.add(Flatten())
 model.add(Dense(units=256, activation='relu'))
 model.add(Dense(units=256, activation='relu'))
 model.add(Dense(units=256, activation='relu'))
@@ -44,8 +43,7 @@ model.add(Dense(units=256, activation='relu'))
 model.add(Dense(units=1, activation='sigmoid'))
 # 二分类交叉熵代价函数 适合二分类
 loss = binary_crossentropy,
-optimizer = keras.optimizers.adam_v2.Adam()
-model.compile(loss=loss, optimizer=optimizer, metrics='accuracy')
+model.compile(loss=loss, optimizer=Adam(), metrics=['accuracy'])
 
 # 开始训练
 model.fit(x_train_index, y_train, epochs=100, batch_size=10)
